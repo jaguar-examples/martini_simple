@@ -16,6 +16,8 @@ class PostsIndexPage extends Component {
       return (page as Category).name;
     } else if (page is Section) {
       return (page as Section).name;
+    } else if(page is Site) {
+      return (page as Site).meta.title;
     }
     throw new UnsupportedError('Unsupported list page!');
   }

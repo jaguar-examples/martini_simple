@@ -47,4 +47,8 @@ class DefaultWriter implements SectionWriter {
     }
     return ret;
   }
+
+  List<String> tags(Tag tag) => [];
+
+  List<String> categories(Category cat) => [];
 }
