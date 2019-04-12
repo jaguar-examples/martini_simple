@@ -1,9 +1,9 @@
 part of site.partials;
 
-class PostsListItemPartial extends Component {
+class ListItemPartial extends Component {
   final SinglePage page;
 
-  PostsListItemPartial(this.page);
+  ListItemPartial(this.page);
 
   @override
   String render() {

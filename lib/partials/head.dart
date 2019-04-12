@@ -38,6 +38,20 @@ class HeadComp extends Component {
 
     <meta name="generator" content="Martini 0.1.0" />
 
+    <!-- My stylesheets -->
+    <link rel="stylesheet" href="${site.meta.baseURL}/static/css/prettify_own.css">
+    <link rel="stylesheet" href="${site.meta.baseURL}/static/css/styles.css">
+    <link rel="stylesheet" href="${site.meta.baseURL}/static/css/custom.css">
+    <!-- My RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="${site.meta.baseURL}/index.xml">
+</head>
+    ''';
+  }
+
+  String toString() => render();
+}
+
+/*
     <!-- Fonts -->
     <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
     <link href="https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Source+Sans+Pro:200,400,700,600,400italic,700italic" rel="stylesheet" type="text/css">
@@ -46,16 +60,7 @@ class HeadComp extends Component {
     <!-- Font awesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- My stylesheets -->
-    <link rel="stylesheet" href="${site.meta.baseURL}/static/css/prettify_own.css">
-    <link rel="stylesheet" href="${site.meta.baseURL}/static/css/styles.css">
-    <link rel="stylesheet" href="${site.meta.baseURL}/static/css/custom.css">
-    <!-- My RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="${site.meta.baseURL}/index.xml">
-
     <!--Google prettify-->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=dart&lang=go&lang=css&lang=swift&lang=vhdl&lang=yaml"></script>
-</head>
-    ''';
-  }
-}
+
+ */

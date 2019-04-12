@@ -1,11 +1,11 @@
-part of site.layout;
+part of 'pages.dart';
 
-class PostsIndexPage extends Component {
+class MyIndexPage extends Component {
   final ListPage page;
 
   final PaginationInfo paginationInfo;
 
-  PostsIndexPage(this.page, this.paginationInfo);
+  MyIndexPage(this.page, this.paginationInfo);
 
   Site get site => page.site;
 
@@ -19,14 +19,14 @@ class PostsIndexPage extends Component {
     } else if(page is Site) {
       return (page as Site).meta.title;
     }
-    throw new UnsupportedError('Unsupported list page!');
+    throw UnsupportedError('Unsupported list page!');
   }
 
   @override
   String render() {
     return '''
 <html>
-  ${comp(new HeadComp(page))}
+  ${HeadComp(page)}
 
   <body>
     <header class="site">
@@ -42,13 +42,13 @@ class PostsIndexPage extends Component {
         <div class="col-sm-9">
           <div class="articles">
             ${range(paginationInfo.start, paginationInfo.end,
-            (i) => new PostsListItemPartial(page.pages[i]).render())}
+            (i) => ListItemPartial(page.pages[i]).render())}
           </div>
 
           <!-- TODO {{ partial "pagination.html" . }} -->
         </div>
         <div class="col-sm-3 sidebar">
-          ${comp(new SidebarComp(page))}
+          ${SidebarComp(page)}
         </div>
       </div>
     </div>

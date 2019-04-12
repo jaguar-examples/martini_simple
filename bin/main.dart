@@ -2,9 +2,8 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'dart:io';
-import 'package:jaguar/jaguar.dart';
 import 'package:jaguar_martini/jaguar_martini.dart';
-import 'package:jaguar_martini/collectors/dir.dart';
+import 'package:jaguar_martini/fs_content_source.dart';
 
 import 'package:blog/blog.dart';
 
@@ -12,14 +11,14 @@ const siteMeta = const SiteMetaData(
     title: 'Geek went freak!', baseURL: 'http://localhost:8000');
 
 main(List<String> arguments) async {
-  final postCollector = new DirPostCollector(new Directory('./content'));
-  final processor = new Processor(siteMeta, new DefaultWriter())
-    ..addShortcode(const GistShortCode())
-    ..add(postCollector)
-    ..start();
+  final builder = Builder(
+      siteMeta,
+      SiteSpec(
+          defaultSectionRenderer: SectionSpec(), shortcodes: [GistShortCode()]),
+      [FsContentSource(Directory('content'))]);
 
-  final server = new Jaguar(port: 8000);
-  server.addApi(new GeneratedHandler(processor));
-  server.staticFiles('/static/*', new Directory('./static'));
-  await server.serve();
+  await FsWriter(builder, Directory('built'), statics: Directory('static'))
+      .write();
+
+  exit(0);
 }

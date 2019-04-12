@@ -1,0 +1,12 @@
+/*
+  final postCollector = DirPostCollector(Directory('./content'));
+  final processor = Processor(siteMeta, DefaultWriter())
+    ..addShortcode(const GistShortCode())
+    ..add(postCollector)
+    ..start();
+
+  final server = Jaguar(port: 8000);
+  server.get("/*", GeneratedHandler(processor));
+  server.staticFiles('/static/*', new Directory('./static'));
+  await server.serve();
+  */
